@@ -98,3 +98,23 @@ numbers.sort(by: compareAscending)
 numbers.sort(by: { (i, j) -> Bool in
     return i < j
 })
+
+let myFloat: Float = 4
+print(myFloat)
+
+let score = if myFloat > 5 {
+    1
+} else {
+    0
+}
+print(score)
+
+let veggie =  "Red pepper"
+switch veggie {
+case "eggplant":
+    print("Yep, I knew it!")
+case "lettuce", "greenie":
+    print("something green :)")
+default:
+    print("well, here we are!")
+}
