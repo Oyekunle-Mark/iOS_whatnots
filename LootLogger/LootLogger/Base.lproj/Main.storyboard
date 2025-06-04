@@ -45,13 +45,47 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" id="x06-eg-CQf">
-                                <rect key="frame" x="0.0" y="110" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="x06-eg-CQf" customClass="ItemCell" customModule="LootLogger" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="110" width="414" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x06-eg-CQf" id="53A-WO-Qox">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blr-IQ-MBy">
+                                            <rect key="frame" x="352.5" y="22.5" width="41.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVI-mV-iNN">
+                                            <rect key="frame" x="20" y="4" width="41.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2A-OY-tVp">
+                                            <rect key="frame" x="20" y="32.5" width="31" height="17.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="blr-IQ-MBy" secondAttribute="trailing" constant="20" symbolic="YES" id="8yb-PE-Cum"/>
+                                        <constraint firstItem="jVI-mV-iNN" firstAttribute="top" secondItem="53A-WO-Qox" secondAttribute="top" constant="4" id="Bj0-Ry-cyw"/>
+                                        <constraint firstItem="jVI-mV-iNN" firstAttribute="leading" secondItem="53A-WO-Qox" secondAttribute="leading" constant="20" symbolic="YES" id="EKq-6L-Ogd"/>
+                                        <constraint firstItem="I2A-OY-tVp" firstAttribute="top" secondItem="jVI-mV-iNN" secondAttribute="bottom" constant="8" symbolic="YES" id="TrP-a5-xwA"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="I2A-OY-tVp" secondAttribute="bottom" constant="4" id="X9m-tc-cS1"/>
+                                        <constraint firstItem="blr-IQ-MBy" firstAttribute="centerY" secondItem="53A-WO-Qox" secondAttribute="centerY" id="rqF-xs-bie"/>
+                                        <constraint firstItem="I2A-OY-tVp" firstAttribute="leading" secondItem="jVI-mV-iNN" secondAttribute="leading" id="vjE-fK-wef"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="jVI-mV-iNN" id="nmn-Ei-TqH"/>
+                                    <outlet property="serialNumberLabel" destination="I2A-OY-tVp" id="zaK-x9-v95"/>
+                                    <outlet property="valueLabel" destination="blr-IQ-MBy" id="hVd-wM-nkK"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -66,6 +100,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
