@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W6E-Ug-OMi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="twK-vr-JQe">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -95,21 +95,22 @@
                             <outlet property="delegate" destination="W6E-Ug-OMi" id="QSr-6X-8wS"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="jUj-Iq-6ks"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QyX-vb-0YS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="160" y="-61"/>
+            <point key="canvasLocation" x="1069.5652173913045" y="-61.607142857142854"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="e8W-6e-l51">
             <objects>
                 <viewController id="MBn-Qs-pd8" customClass="DetailViewController" customModule="LootLogger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oAz-i8-dkX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0YO-uK-KUF">
-                                <rect key="frame" x="8" y="8" width="398" height="870"/>
+                                <rect key="frame" x="8" y="100" width="398" height="754"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="N5r-3s-eQK">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="34"/>
@@ -124,6 +125,9 @@
                                                 <rect key="frame" x="53" y="0.0" width="345" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="MBn-Qs-pd8" id="r3f-l4-u7f"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -140,6 +144,9 @@
                                                 <rect key="frame" x="53" y="0.0" width="345" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="MBn-Qs-pd8" id="Ha4-PZ-ul2"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -156,11 +163,14 @@
                                                 <rect key="frame" x="53" y="0.0" width="345" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="MBn-Qs-pd8" id="SFL-rO-e1d"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlG-WF-VNn">
-                                        <rect key="frame" x="0.0" y="126" width="398" height="744"/>
+                                        <rect key="frame" x="0.0" y="126" width="398" height="628"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -192,7 +202,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j0t-Fk-3Cz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="951" y="-62"/>
+            <point key="canvasLocation" x="1860.8695652173915" y="-62.276785714285708"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Mmc-xe-qkS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="twK-vr-JQe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="phM-Z4-To7">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="W6E-Ug-OMi" kind="relationship" relationship="rootViewController" id="i5Q-vn-Ud7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ci7-M1-twz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="159.42028985507247" y="-61.607142857142854"/>
         </scene>
     </scenes>
     <resources>
