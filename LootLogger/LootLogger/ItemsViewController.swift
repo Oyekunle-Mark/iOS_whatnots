@@ -8,7 +8,11 @@
 import UIKit
 
 class ItemsViewController: UITableViewController {
-    var itemStore: ItemStore!
+    var itemStore: ItemStore! {
+        didSet {
+            navigationItem.title = "LootLogger"
+        }
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemStore.allItems.count
@@ -48,7 +52,7 @@ class ItemsViewController: UITableViewController {
         itemStore.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
     
-    @IBAction func addNewItem(_ sender: UIButton) {
+    @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         // create new item and add it to the store
         let newItem = itemStore.createItem()
         
@@ -58,23 +62,6 @@ class ItemsViewController: UITableViewController {
             
             // insert this new row into the table
             tableView.insertRows(at: [indexPath], with: .automatic)
-        }
-    }
-    
-    @IBAction func toggleEditingMode(_ sender: UIButton) {
-        // if currently in editing mode
-        if isEditing {
-            // change text of button to inform user of state
-            sender.setTitle("Edit", for: .normal)
-            
-            // turn off editing mode
-            setEditing(false, animated: true)
-        } else {
-            // change text of buttong to inform user of state
-            sender.setTitle("Done", for: .normal)
-            
-            // enter editing mode
-            setEditing(true, animated: true)
         }
     }
     
@@ -105,5 +92,11 @@ class ItemsViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         tableView.reloadData()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
     }
 }

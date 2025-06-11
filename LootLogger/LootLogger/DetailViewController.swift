@@ -14,7 +14,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var serialNumberField: UITextField!
     @IBOutlet var nameField: UITextField!
     
-    var item: Item!
+    var item: Item! {
+        didSet {
+            navigationItem.title = item.name
+        }
+    }
     
     let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -37,11 +41,16 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         nameField.text = item.name
         serialNumberField.text = item.serialNumber
         valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
+        // bronze challenge, display number pad for value field
+        valueField.keyboardType = .numberPad
         dateLabel.text = dateFormatter.string(from: item.dateCreated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        // clear first responder
+        view.endEditing(true)
         
         // save changes to item
         item.name = nameField.text ?? ""
@@ -59,5 +68,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         
         return true
+    }
+
+    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 }

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Items View Controller-->
+        <!--Title-->
         <scene sceneID="nmy-fj-xgy">
             <objects>
                 <tableViewController id="W6E-Ug-OMi" customClass="ItemsViewController" customModule="LootLogger" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,38 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="8Ha-F0-s71">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QbL-Cm-4Z8">
-                                    <rect key="frame" x="19" y="12.5" width="54" height="35"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Edit"/>
-                                    <connections>
-                                        <action selector="toggleEditingMode:" destination="W6E-Ug-OMi" eventType="touchUpInside" id="6DE-Lh-pgL"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gt-CU-NnQ">
-                                    <rect key="frame" x="341" y="12.5" width="55" height="35"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="Add"/>
-                                    <connections>
-                                        <action selector="addNewItem:" destination="W6E-Ug-OMi" eventType="touchUpInside" id="w90-eh-CcY"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="trailing" secondItem="6Gt-CU-NnQ" secondAttribute="trailing" constant="18" id="93G-J4-chC"/>
-                                <constraint firstItem="QbL-Cm-4Z8" firstAttribute="leading" secondItem="8Ha-F0-s71" secondAttribute="leading" constant="19" id="Eiz-JE-UCG"/>
-                                <constraint firstItem="QbL-Cm-4Z8" firstAttribute="centerY" secondItem="8Ha-F0-s71" secondAttribute="centerY" id="Tbn-Yi-j0U"/>
-                                <constraint firstItem="QbL-Cm-4Z8" firstAttribute="baseline" secondItem="6Gt-CU-NnQ" secondAttribute="baseline" id="iSg-fv-rrN"/>
-                            </constraints>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="x06-eg-CQf" customClass="ItemCell" customModule="LootLogger" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="110" width="414" height="65"/>
+                                <rect key="frame" x="0.0" y="50" width="414" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x06-eg-CQf" id="53A-WO-Qox">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
@@ -95,7 +66,13 @@
                             <outlet property="delegate" destination="W6E-Ug-OMi" id="QSr-6X-8wS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="jUj-Iq-6ks"/>
+                    <navigationItem key="navigationItem" title="Title" id="xeo-4e-UPP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZHG-N9-4ef">
+                            <connections>
+                                <action selector="addNewItem:" destination="W6E-Ug-OMi" id="m05-UZ-rUS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QyX-vb-0YS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -184,6 +161,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QtF-zN-Vf2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="0YO-uK-KUF" firstAttribute="leading" secondItem="QtF-zN-Vf2" secondAttribute="leading" constant="8" id="6ux-29-axl"/>
                             <constraint firstItem="QtF-zN-Vf2" firstAttribute="trailing" secondItem="0YO-uK-KUF" secondAttribute="trailing" constant="8" id="G4o-gy-qwL"/>
@@ -191,6 +169,9 @@
                             <constraint firstItem="0YO-uK-KUF" firstAttribute="top" secondItem="QtF-zN-Vf2" secondAttribute="top" constant="8" id="Qys-bs-ydg"/>
                             <constraint firstItem="QtF-zN-Vf2" firstAttribute="trailing" secondItem="0YO-uK-KUF" secondAttribute="trailing" constant="8" id="fwW-fb-iIm"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="uxx-gu-qDg" appends="YES" id="wtN-iM-4js"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="dkU-z0-HWx"/>
                     <connections>
@@ -201,6 +182,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j0t-Fk-3Cz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="uxx-gu-qDg">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="MBn-Qs-pd8" id="82f-oU-vGg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1860.8695652173915" y="-62.276785714285708"/>
         </scene>
