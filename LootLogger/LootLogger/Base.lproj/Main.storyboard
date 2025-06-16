@@ -87,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0YO-uK-KUF">
-                                <rect key="frame" x="8" y="100" width="398" height="754"/>
+                                <rect key="frame" x="8" y="100" width="398" height="705"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="N5r-3s-eQK">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="34"/>
@@ -147,7 +147,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlG-WF-VNn">
-                                        <rect key="frame" x="0.0" y="126" width="398" height="628"/>
+                                        <rect key="frame" x="0.0" y="126" width="398" height="579"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -158,16 +158,29 @@
                                     <constraint firstItem="Rhq-AC-bf4" firstAttribute="leading" secondItem="eZu-Qe-FJc" secondAttribute="leading" id="GbR-2a-F03"/>
                                 </constraints>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGk-Hz-kZ1">
+                                <rect key="frame" x="8" y="813" width="398" height="49"/>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="OwI-Vj-khM">
+                                        <connections>
+                                            <action selector="choosePhotoSource:" destination="MBn-Qs-pd8" id="LVm-xo-XCF"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QtF-zN-Vf2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="QtF-zN-Vf2" firstAttribute="bottom" secondItem="WGk-Hz-kZ1" secondAttribute="bottom" id="2dF-t5-YlB"/>
                             <constraint firstItem="0YO-uK-KUF" firstAttribute="leading" secondItem="QtF-zN-Vf2" secondAttribute="leading" constant="8" id="6ux-29-axl"/>
                             <constraint firstItem="QtF-zN-Vf2" firstAttribute="trailing" secondItem="0YO-uK-KUF" secondAttribute="trailing" constant="8" id="G4o-gy-qwL"/>
-                            <constraint firstItem="QtF-zN-Vf2" firstAttribute="bottom" secondItem="0YO-uK-KUF" secondAttribute="bottom" constant="8" id="Iua-Qe-sBm"/>
+                            <constraint firstItem="WGk-Hz-kZ1" firstAttribute="trailing" secondItem="0YO-uK-KUF" secondAttribute="trailing" id="Pe2-O1-L6T"/>
+                            <constraint firstItem="WGk-Hz-kZ1" firstAttribute="top" secondItem="0YO-uK-KUF" secondAttribute="bottom" constant="8" id="Q7j-Re-eOl"/>
                             <constraint firstItem="0YO-uK-KUF" firstAttribute="top" secondItem="QtF-zN-Vf2" secondAttribute="top" constant="8" id="Qys-bs-ydg"/>
                             <constraint firstItem="QtF-zN-Vf2" firstAttribute="trailing" secondItem="0YO-uK-KUF" secondAttribute="trailing" constant="8" id="fwW-fb-iIm"/>
+                            <constraint firstItem="WGk-Hz-kZ1" firstAttribute="leading" secondItem="0YO-uK-KUF" secondAttribute="leading" id="yrL-o6-VW9"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="uxx-gu-qDg" appends="YES" id="wtN-iM-4js"/>
