@@ -46,6 +46,13 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         // bronze challenge, display number pad for value field
         valueField.keyboardType = .numberPad
         dateLabel.text = dateFormatter.string(from: item.dateCreated)
+        
+        // get the item key
+        let key = item.itemKey
+        
+        // if there is an associated image with the item, we want to display it on the image view
+        let imageToDisplay = imageStore.image(forKey: key)
+        imageView.image = imageToDisplay
     }
     
     override func viewWillDisappear(_ animated: Bool) {
