@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9F6FB7F32E0B148F00BE5A09 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6FB7F22E0B148F00BE5A09 /* Mood.swift */; };
+		9F6FB7F52E0B14E900BE5A09 /* MoodEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6FB7F42E0B14E900BE5A09 /* MoodEntry.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		9F6FB7D52E0B13C700BE5A09 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +32,8 @@
 		9F6FB7BE2E0B13C600BE5A09 /* Mandala.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mandala.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F6FB7D42E0B13C700BE5A09 /* MandalaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MandalaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F6FB7DE2E0B13C700BE5A09 /* MandalaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MandalaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F6FB7F22E0B148F00BE5A09 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		9F6FB7F42E0B14E900BE5A09 /* MoodEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -88,6 +95,8 @@
 		9F6FB7B52E0B13C600BE5A09 = {
 			isa = PBXGroup;
 			children = (
+				9F6FB7F22E0B148F00BE5A09 /* Mood.swift */,
+				9F6FB7F42E0B14E900BE5A09 /* MoodEntry.swift */,
 				9F6FB7C02E0B13C600BE5A09 /* Mandala */,
 				9F6FB7D72E0B13C700BE5A09 /* MandalaTests */,
 				9F6FB7E12E0B13C700BE5A09 /* MandalaUITests */,
@@ -249,6 +258,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F6FB7F32E0B148F00BE5A09 /* Mood.swift in Sources */,
+				9F6FB7F52E0B14E900BE5A09 /* MoodEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
