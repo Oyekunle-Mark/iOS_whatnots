@@ -1,0 +1,13 @@
+//
+//  ViewController.swift
+//  Photorama
+//
+//  Created by omarkoloyede on 7/1/25.
+//
+
+import UIKit
+
+class PhotosViewController: UIViewController {
+    @IBOutlet private var imageView: UIImageView!
+}
+
