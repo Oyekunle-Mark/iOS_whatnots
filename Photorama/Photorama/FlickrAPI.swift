@@ -18,7 +18,19 @@ struct FlickrAPI {
     private static func flickrURL(endPoint: EndPoint, parameters: [String:String]?) -> URL {
         var components = URLComponents(string: baseURLString)!
         var queryItems = [URLQueryItem]()
+
+        let baseParams = [
+            "method": endPoint.rawValue,
+            "format": "json",
+            "nojsoncallback": "1",
+            "api_key": apiKey
+        ]
         
+        for (key, value) in baseParams {
+            let item = URLQueryItem(name: key, value: value)
+            queryItems.append(item)
+        }
+
         if let additionalParams = parameters {
             for (key, value) in additionalParams {
                 let item = URLQueryItem(name: key, value: value)
@@ -33,5 +45,21 @@ struct FlickrAPI {
     
     static var interestingPhotosURL: URL {
         return flickrURL(endPoint: .interestingPhotos, parameters: ["extras": "url_z,date_taken"])
+    }
+}
+
+struct FlickrResponse: Codable {
+    let photosInfo: FlickrPhotosResponse
+    
+    enum CodingKeys: String, CodingKey {
+        case photosInfo = "photos"
+    }
+}
+
+struct FlickrPhotosResponse: Codable {
+    let photos: [Photo]
+    
+    enum CodingKeys: String, CodingKey {
+        case photos = "photo"
     }
 }
