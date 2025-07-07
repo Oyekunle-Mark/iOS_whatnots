@@ -20,3 +20,10 @@ class Photo: Codable {
         case dateTaken = "datetaken"
     }
 }
+
+extension Photo: Equatable {
+    static func == (lhs: Photo, rhs: Photo) -> Bool {
+        // two photos are the same if they have the same photoID
+        return lhs.photoID == rhs.photoID
+    }
+}

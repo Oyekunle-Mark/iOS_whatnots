@@ -6,11 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		9F657CDF2E19CC3600DD5689 /* PhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F657CDE2E19CC3600DD5689 /* PhotoDataSource.swift */; };
-		9F657CE12E19D10B00DD5689 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F657CE02E19D10B00DD5689 /* PhotoCollectionViewCell.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		9F657CB72E144F9600DD5689 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -32,8 +27,6 @@
 		9F657CA02E144F9500DD5689 /* Photorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F657CB62E144F9600DD5689 /* PhotoramaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoramaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F657CC02E144F9600DD5689 /* PhotoramaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoramaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F657CDE2E19CC3600DD5689 /* PhotoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDataSource.swift; sourceTree = "<group>"; };
-		9F657CE02E19D10B00DD5689 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -95,8 +88,6 @@
 		9F657C972E144F9500DD5689 = {
 			isa = PBXGroup;
 			children = (
-				9F657CE02E19D10B00DD5689 /* PhotoCollectionViewCell.swift */,
-				9F657CDE2E19CC3600DD5689 /* PhotoDataSource.swift */,
 				9F657CA22E144F9500DD5689 /* Photorama */,
 				9F657CB92E144F9600DD5689 /* PhotoramaTests */,
 				9F657CC32E144F9600DD5689 /* PhotoramaUITests */,
@@ -258,8 +249,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F657CE12E19D10B00DD5689 /* PhotoCollectionViewCell.swift in Sources */,
-				9F657CDF2E19CC3600DD5689 /* PhotoDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

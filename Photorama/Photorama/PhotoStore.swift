@@ -18,6 +18,8 @@ class PhotoStore {
         return URLSession(configuration: config)
     }()
     
+    let imageStore = ImageStore()
+    
     private func processPhotosRequest(data: Data?, error: Error?) -> Result<[Photo], Error> {
         guard let jsonData = data else {
             return .failure(error!)
@@ -42,6 +44,15 @@ class PhotoStore {
     }
     
     func fetchImage(for photo: Photo, completion: @escaping (Result<UIImage, Error>) -> Void) {
+        let photoKey = photo.photoID
+
+        if let image = imageStore.image(forKey: photoKey) {
+            OperationQueue.main.addOperation {
+                completion(.success(image))
+            }
+            return
+        }
+
         guard let photoURL = photo.remoteURL else {
             completion(.failure(PhotoError.missingImageURL))
             return
@@ -53,6 +64,10 @@ class PhotoStore {
             (data, response, error) in
             
             let result = self.processImageRequest(data: data, error: error)
+            
+            if case let .success(image) = result {
+                self.imageStore.setImage(image, forKey: photoKey)
+            }
             OperationQueue.main.addOperation {
                 completion(result)
             }
