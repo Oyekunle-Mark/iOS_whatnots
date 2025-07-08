@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 enum PhotoError: Error {
     case imageCreationError
@@ -20,12 +21,40 @@ class PhotoStore {
     
     let imageStore = ImageStore()
     
+    let persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Photorama")
+        container.loadPersistentStores { (description, error) in
+            if let error = error {
+                print("Error setting up Core Data (\(error)).")
+            }
+        }
+        return container
+    }()
+    
     private func processPhotosRequest(data: Data?, error: Error?) -> Result<[Photo], Error> {
         guard let jsonData = data else {
             return .failure(error!)
         }
         
-        return FlickrAPI.photos(fromJSON: jsonData)
+        let context = persistentContainer.viewContext
+        
+        switch FlickrAPI.photos(fromJSON: jsonData) {
+        case let .success(flickrPhotos):
+            let photos = flickrPhotos.map { flickrPhoto -> Photo in
+                var photo: Photo!
+                context.performAndWait {
+                    photo = Photo(context: context)
+                    photo.title = flickrPhoto.title
+                    photo.photoID = flickrPhoto.photoID
+                    photo.remoteURL = flickrPhoto.remoteURL
+                    photo.dateTaken = flickrPhoto.dateTaken
+                }
+                return photo
+            }
+            return .success(photos)
+        case let .failure(error):
+            return .failure(error)
+        }
     }
     
     func fetchInterestingPhotos(completion: @escaping (Result<[Photo], Error>) -> Void) {
@@ -44,8 +73,10 @@ class PhotoStore {
     }
     
     func fetchImage(for photo: Photo, completion: @escaping (Result<UIImage, Error>) -> Void) {
-        let photoKey = photo.photoID
-
+        guard let photoKey = photo.photoID else {
+            preconditionFailure("Photo expected to have a photoID.")
+        }
+        
         if let image = imageStore.image(forKey: photoKey) {
             OperationQueue.main.addOperation {
                 completion(.success(image))
