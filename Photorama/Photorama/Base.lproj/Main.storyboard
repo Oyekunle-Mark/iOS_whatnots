@@ -74,17 +74,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pMz-ZI-jtC">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="247" translatesAutoresizingMaskIntoConstraints="NO" id="pMz-ZI-jtC">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                             </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2F-ry-fZr">
+                                <rect key="frame" x="0.0" y="769" width="393" height="49"/>
+                                <items>
+                                    <barButtonItem title="Tags" id="bEY-7U-B0g"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lhJ-tB-Ylt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="pMz-ZI-jtC" firstAttribute="top" secondItem="lhJ-tB-Ylt" secondAttribute="top" id="4Ws-hh-yNc"/>
-                            <constraint firstItem="pMz-ZI-jtC" firstAttribute="trailing" secondItem="lhJ-tB-Ylt" secondAttribute="trailing" id="7Jf-od-Qfa"/>
-                            <constraint firstItem="pMz-ZI-jtC" firstAttribute="leading" secondItem="lhJ-tB-Ylt" secondAttribute="leading" id="Wka-NZ-UKo"/>
-                            <constraint firstItem="pMz-ZI-jtC" firstAttribute="bottom" secondItem="lhJ-tB-Ylt" secondAttribute="bottom" id="wwM-h2-hRY"/>
+                            <constraint firstItem="lhJ-tB-Ylt" firstAttribute="trailing" secondItem="pMz-ZI-jtC" secondAttribute="trailing" id="AcB-K0-YdA"/>
+                            <constraint firstItem="f2F-ry-fZr" firstAttribute="leading" secondItem="lhJ-tB-Ylt" secondAttribute="leading" id="PNy-0a-Ok6"/>
+                            <constraint firstItem="lhJ-tB-Ylt" firstAttribute="top" secondItem="pMz-ZI-jtC" secondAttribute="top" id="Pam-Qx-vhR"/>
+                            <constraint firstItem="f2F-ry-fZr" firstAttribute="trailing" secondItem="lhJ-tB-Ylt" secondAttribute="trailing" id="YQi-EF-pz1"/>
+                            <constraint firstItem="lhJ-tB-Ylt" firstAttribute="leading" secondItem="pMz-ZI-jtC" secondAttribute="leading" id="dle-Qm-1hl"/>
+                            <constraint firstItem="f2F-ry-fZr" firstAttribute="bottom" secondItem="lhJ-tB-Ylt" secondAttribute="bottom" id="hQB-gg-5WG"/>
+                            <constraint firstItem="f2F-ry-fZr" firstAttribute="top" secondItem="pMz-ZI-jtC" secondAttribute="bottom" id="tur-Fu-w60"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2M1-pz-f2t"/>
@@ -94,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ego-AC-0hn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1813" y="-27"/>
+            <point key="canvasLocation" x="1812.9770992366412" y="-27.464788732394368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wk3-I1-J41">
