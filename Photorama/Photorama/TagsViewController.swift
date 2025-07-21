@@ -50,4 +50,32 @@ class TagsViewController: UITableViewController {
             self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tag = tagDataSource.tags[indexPath.row]
+        
+        if let index = selectedIndexPaths.firstIndex(of: indexPath) {
+            selectedIndexPaths.remove(at: index)
+            photo.removeFromTags(tag)
+        } else {
+            selectedIndexPaths.append(indexPath)
+            photo.addToTags(tag)
+        }
+        
+        do {
+            try store.persistentContainer.viewContext.save()
+        } catch {
+            print("Core Data save failed: \(error).")
+        }
+        
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if selectedIndexPaths.firstIndex(of: indexPath) != nil {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+    }
 }
