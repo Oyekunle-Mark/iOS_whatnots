@@ -78,4 +78,40 @@ class TagsViewController: UITableViewController {
             cell.accessoryType = .none
         }
     }
+    
+    @IBAction func done(_ sender: UIBarButtonItem) {
+        presentingViewController?.dismiss(animated: true)
+    }
+    
+    @IBAction func addNewTag(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "Add Tag", message: nil, preferredStyle: .alert)
+        alertController.addTextField {
+            (textField) in
+            textField.placeholder = "tag name"
+            textField.autocapitalizationType = .words
+        }
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) {
+            (action) in
+            
+            if let tagName = alertController.textFields?.first?.text {
+                let context = self.store.persistentContainer.viewContext
+                let newTag = Tag(context: context)
+                newTag.setValue(tagName, forKey: "name")
+                
+                do {
+                    try context.save()
+                } catch {
+                    print("Core Data save filed:\(error).")
+                }
+                self.updateTags()
+            }
+        }
+        alertController.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true)
+    }
 }
